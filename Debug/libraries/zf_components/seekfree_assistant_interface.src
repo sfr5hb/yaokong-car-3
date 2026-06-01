@@ -1,0 +1,819 @@
+	; Module start
+	.compiler_version	"TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler v1.1r8 Build 22011964"
+	.compiler_invocation	"ctc -f cc19720a --dep-file=seekfree_assistant_interface.d -c99 --fp-model=3cflnrSTz -D__CPU__=tc26xb -D__CPU_TC26XB__ --core=tc1.6.x --fp-model=+float -D__CPU__=tc26xb -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\code -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Configurations -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Infra -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform\\\\Tricore -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform\\\\Tricore\\\\Compilers -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr\\\\TC26B -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr\\\\TC26B\\\\_Reg -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\If -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\If\\\\Ccu6If -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\StdIf -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Bsp -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Math -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\_Utilities -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin\\\\Asc -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin\\\\Std -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6 -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\Std -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\Timer -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\CStart -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\Irq -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\Std -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma\\\\Dma -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma\\\\Std -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Flash -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Flash\\\\Std -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12 -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12\\\\IncrEnc -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12\\\\Std -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Atom -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Atom\\\\Pwm -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Std -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Mtu -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Mtu\\\\Std -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Port -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Port\\\\Std -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi\\\\SpiMaster -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi\\\\Std -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Scu -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Scu\\\\Std -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Src -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Src\\\\Std -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Stm -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Stm\\\\Std -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc\\\\Adc -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc\\\\Std -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Impl -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Lib -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Lib\\\\DataHandling -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_PinMap -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\zf_common -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\zf_components -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\zf_device -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\zf_driver -ID:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\user -g2 -w544 -w557 -t4 --language=+volatile -N0 -O0 -Y0 -Z0 --compact-max-size=200 --misrac-version=2004 -o libraries/zf_components/seekfree_assistant_interface.src ../libraries/zf_components/seekfree_assistant_interface.c"
+	.compiler_name		"ctc"
+	;source	'../libraries/zf_components/seekfree_assistant_interface.c'
+
+	
+$TC16X
+	
+	.sdecl	'.text.seekfree_assistant_interface.seekfree_assistant_transfer',code,cluster('seekfree_assistant_transfer')
+	.sect	'.text.seekfree_assistant_interface.seekfree_assistant_transfer'
+	.align	2
+	
+	.global	seekfree_assistant_transfer
+; Function seekfree_assistant_transfer
+.L15:
+seekfree_assistant_transfer:	.type	func
+	mov	d2,d4
+.L51:
+	j	.L2
+.L2:
+	ret
+.L43:
+	
+__seekfree_assistant_transfer_function_end:
+	.size	seekfree_assistant_transfer,__seekfree_assistant_transfer_function_end-seekfree_assistant_transfer
+.L33:
+	; End of function
+	
+	.sdecl	'.text.seekfree_assistant_interface.seekfree_assistant_receive',code,cluster('seekfree_assistant_receive')
+	.sect	'.text.seekfree_assistant_interface.seekfree_assistant_receive'
+	.align	2
+	
+	.global	seekfree_assistant_receive
+; Function seekfree_assistant_receive
+.L17:
+seekfree_assistant_receive:	.type	func
+	mov	d2,#0
+.L101:
+	j	.L3
+.L3:
+	ret
+.L47:
+	
+__seekfree_assistant_receive_function_end:
+	.size	seekfree_assistant_receive,__seekfree_assistant_receive_function_end-seekfree_assistant_receive
+.L38:
+	; End of function
+	
+	.sdecl	'.text.seekfree_assistant_interface.seekfree_assistant_interface_init',code,cluster('seekfree_assistant_interface_init')
+	.sect	'.text.seekfree_assistant_interface.seekfree_assistant_interface_init'
+	.align	2
+	
+	.global	seekfree_assistant_interface_init
+; Function seekfree_assistant_interface_init
+.L19:
+seekfree_assistant_interface_init:	.type	func
+	mov	d15,#0
+	jeq	d15,d4,.L4
+.L60:
+	mov	d15,#1
+	jeq	d15,d4,.L5
+.L61:
+	mov	d15,#3
+	jeq	d15,d4,.L6
+.L62:
+	mov	d15,#4
+	jeq	d15,d4,.L7
+	j	.L8
+.L4:
+	movh.a	a15,#@his(seekfree_assistant_transfer_callback)
+	lea	a15,[a15]@los(seekfree_assistant_transfer_callback)
+.L63:
+	movh.a	a2,#@his(debug_send_buffer)
+	lea	a2,[a2]@los(debug_send_buffer)
+.L64:
+	st.a	[a15],a2
+.L65:
+	movh.a	a15,#@his(seekfree_assistant_receive_callback)
+	lea	a15,[a15]@los(seekfree_assistant_receive_callback)
+.L66:
+	movh.a	a2,#@his(debug_read_ring_buffer)
+	lea	a2,[a2]@los(debug_read_ring_buffer)
+.L67:
+	st.a	[a15],a2
+.L68:
+	j	.L9
+.L5:
+	movh.a	a15,#@his(seekfree_assistant_transfer_callback)
+	lea	a15,[a15]@los(seekfree_assistant_transfer_callback)
+.L69:
+	movh.a	a2,#@his(wireless_uart_send_buffer)
+	lea	a2,[a2]@los(wireless_uart_send_buffer)
+.L70:
+	st.a	[a15],a2
+.L71:
+	movh.a	a15,#@his(seekfree_assistant_receive_callback)
+	lea	a15,[a15]@los(seekfree_assistant_receive_callback)
+.L72:
+	movh.a	a2,#@his(wireless_uart_read_buffer)
+	lea	a2,[a2]@los(wireless_uart_read_buffer)
+.L73:
+	st.a	[a15],a2
+.L74:
+	j	.L10
+.L6:
+	movh.a	a15,#@his(seekfree_assistant_transfer_callback)
+	lea	a15,[a15]@los(seekfree_assistant_transfer_callback)
+.L75:
+	movh.a	a2,#@his(wifi_uart_send_buffer)
+	lea	a2,[a2]@los(wifi_uart_send_buffer)
+.L76:
+	st.a	[a15],a2
+.L77:
+	movh.a	a15,#@his(seekfree_assistant_receive_callback)
+	lea	a15,[a15]@los(seekfree_assistant_receive_callback)
+.L78:
+	movh.a	a2,#@his(wifi_uart_read_buffer)
+	lea	a2,[a2]@los(wifi_uart_read_buffer)
+.L79:
+	st.a	[a15],a2
+.L80:
+	j	.L11
+.L7:
+	movh.a	a15,#@his(seekfree_assistant_transfer_callback)
+	lea	a15,[a15]@los(seekfree_assistant_transfer_callback)
+.L81:
+	movh.a	a2,#@his(wifi_spi_send_buffer)
+	lea	a2,[a2]@los(wifi_spi_send_buffer)
+.L82:
+	st.a	[a15],a2
+.L83:
+	movh.a	a15,#@his(seekfree_assistant_receive_callback)
+	lea	a15,[a15]@los(seekfree_assistant_receive_callback)
+.L84:
+	movh.a	a2,#@his(wifi_spi_read_buffer)
+	lea	a2,[a2]@los(wifi_spi_read_buffer)
+.L85:
+	st.a	[a15],a2
+.L86:
+	j	.L12
+.L8:
+	movh.a	a15,#@his(seekfree_assistant_transfer_callback)
+	lea	a15,[a15]@los(seekfree_assistant_transfer_callback)
+.L87:
+	movh.a	a2,#@his(seekfree_assistant_transfer)
+	lea	a2,[a2]@los(seekfree_assistant_transfer)
+.L88:
+	st.a	[a15],a2
+.L89:
+	movh.a	a15,#@his(seekfree_assistant_receive_callback)
+	lea	a15,[a15]@los(seekfree_assistant_receive_callback)
+.L90:
+	movh.a	a2,#@his(seekfree_assistant_receive)
+	lea	a2,[a2]@los(seekfree_assistant_receive)
+.L91:
+	st.a	[a15],a2
+.L92:
+	j	.L13
+.L13:
+.L12:
+.L11:
+.L10:
+.L9:
+	ret
+.L39:
+	
+__seekfree_assistant_interface_init_function_end:
+	.size	seekfree_assistant_interface_init,__seekfree_assistant_interface_init_function_end-seekfree_assistant_interface_init
+.L28:
+	; End of function
+	
+	.calls	'__INDIRECT__','debug_read_ring_buffer'
+	.calls	'__INDIRECT__','debug_send_buffer'
+	.calls	'__INDIRECT__','wireless_uart_send_buffer'
+	.calls	'__INDIRECT__','wireless_uart_read_buffer'
+	.calls	'__INDIRECT__','wifi_spi_send_buffer'
+	.calls	'__INDIRECT__','wifi_spi_read_buffer'
+	.calls	'__INDIRECT__','wifi_uart_send_buffer'
+	.calls	'__INDIRECT__','wifi_uart_read_buffer'
+	.calls	'__INDIRECT__','seekfree_assistant_transfer'
+	.calls	'__INDIRECT__','seekfree_assistant_receive'
+	.calls	'seekfree_assistant_transfer','',0
+	.calls	'seekfree_assistant_receive','',0
+	.extern	debug_read_ring_buffer
+	.extern	debug_send_buffer
+	.extern	wireless_uart_send_buffer
+	.extern	wireless_uart_read_buffer
+	.extern	wifi_spi_send_buffer
+	.extern	wifi_spi_read_buffer
+	.extern	wifi_uart_send_buffer
+	.extern	wifi_uart_read_buffer
+	.extern	seekfree_assistant_transfer_callback
+	.extern	seekfree_assistant_receive_callback
+	.extern	__INDIRECT__
+	.calls	'seekfree_assistant_interface_init','',0
+	.sdecl	'.debug_info',debug
+	.sect	'.debug_info'
+.L21:
+	.word	2415
+	.half	3
+	.word	.L22
+	.byte	4
+.L20:
+	.byte	1
+	.byte	'../libraries/zf_components/seekfree_assistant_interface.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\das_workspace\\Seekfree_TC264_Opensource_Library\\Debug\\',0,12,1
+	.word	.L23
+.L42:
+	.byte	2
+	.byte	'unsigned long int',0,4,7,2
+	.byte	'unsigned char',0,1,8
+.L48:
+	.byte	3
+	.word	232
+	.byte	4
+	.byte	'debug_read_ring_buffer',0,1,105,9
+	.word	211
+	.byte	1,1,1,1,5
+	.byte	'buff',0,1,105,48
+	.word	249
+	.byte	5
+	.byte	'len',0,1,105,61
+	.word	211
+	.byte	0,6
+	.word	232
+.L44:
+	.byte	3
+	.word	315
+	.byte	4
+	.byte	'debug_send_buffer',0,1,109,9
+	.word	211
+	.byte	1,1,1,1,5
+	.byte	'buff',0,1,109,54
+	.word	320
+	.byte	5
+	.byte	'len',0,1,109,67
+	.word	211
+	.byte	0,4
+	.byte	'wireless_uart_send_buffer',0,2,90,13
+	.word	211
+	.byte	1,1,1,1,5
+	.byte	'buff',0,2,90,58
+	.word	320
+	.byte	5
+	.byte	'len',0,2,90,71
+	.word	211
+	.byte	0,4
+	.byte	'wireless_uart_read_buffer',0,2,94,13
+	.word	211
+	.byte	1,1,1,1,5
+	.byte	'buff',0,2,94,53
+	.word	249
+	.byte	5
+	.byte	'len',0,2,94,66
+	.word	211
+	.byte	0,4
+	.byte	'wifi_spi_send_buffer',0,3,162,1,9
+	.word	211
+	.byte	1,1,1,1,5
+	.byte	'buff',0,3,162,1,51
+	.word	320
+	.byte	5
+	.byte	'length',0,3,162,1,64
+	.word	211
+	.byte	0,4
+	.byte	'wifi_spi_read_buffer',0,3,164,1,9
+	.word	211
+	.byte	1,1,1,1,5
+	.byte	'buffer',0,3,164,1,45
+	.word	249
+	.byte	5
+	.byte	'length',0,3,164,1,60
+	.word	211
+	.byte	0,4
+	.byte	'wifi_uart_send_buffer',0,4,151,1,9
+	.word	211
+	.byte	1,1,1,1,5
+	.byte	'buff',0,4,151,1,59
+	.word	320
+	.byte	5
+	.byte	'len',0,4,151,1,72
+	.word	211
+	.byte	0,4
+	.byte	'wifi_uart_read_buffer',0,4,153,1,9
+	.word	211
+	.byte	1,1,1,1,5
+	.byte	'buff',0,4,153,1,53
+	.word	249
+	.byte	5
+	.byte	'len',0,4,153,1,66
+	.word	211
+	.byte	0
+.L40:
+	.byte	7,5,42,9,1,8
+	.byte	'SEEKFREE_ASSISTANT_DEBUG_UART',0,0,8
+	.byte	'SEEKFREE_ASSISTANT_WIRELESS_UART',0,1,8
+	.byte	'SEEKFREE_ASSISTANT_CH9141',0,2,8
+	.byte	'SEEKFREE_ASSISTANT_WIFI_UART',0,3,8
+	.byte	'SEEKFREE_ASSISTANT_WIFI_SPI',0,4,8
+	.byte	'SEEKFREE_ASSISTANT_CUSTOM',0,5,0,9
+	.byte	'__INDIRECT__',0,6,1,1,1,1,1,2
+	.byte	'short int',0,2,5,10
+	.byte	'__wchar_t',0,6,1,1
+	.word	977
+	.byte	2
+	.byte	'unsigned int',0,4,7,10
+	.byte	'__size_t',0,6,1,1
+	.word	1008
+	.byte	2
+	.byte	'int',0,4,5,10
+	.byte	'__ptrdiff_t',0,6,1,1
+	.word	1041
+	.byte	11,1,3
+	.word	1068
+	.byte	10
+	.byte	'__codeptr',0,6,1,1
+	.word	1070
+	.byte	10
+	.byte	'__intptr_t',0,6,1,1
+	.word	1041
+	.byte	10
+	.byte	'__uintptr_t',0,6,1,1
+	.word	1008
+	.byte	2
+	.byte	'unsigned short int',0,2,7,10
+	.byte	'_iob_flag_t',0,7,82,25
+	.word	1132
+	.byte	10
+	.byte	'uint8',0,8,105,29
+	.word	232
+	.byte	10
+	.byte	'uint16',0,8,109,29
+	.word	1132
+	.byte	10
+	.byte	'uint32',0,8,113,29
+	.word	211
+	.byte	2
+	.byte	'unsigned long long int',0,8,7,10
+	.byte	'uint64',0,8,118,29
+	.word	1218
+	.byte	10
+	.byte	'sint16',0,8,126,29
+	.word	977
+	.byte	2
+	.byte	'long int',0,4,5,10
+	.byte	'sint32',0,8,131,1,29
+	.word	1274
+	.byte	2
+	.byte	'long long int',0,8,5,10
+	.byte	'sint64',0,8,138,1,29
+	.word	1302
+	.byte	2
+	.byte	'float',0,4,4,10
+	.byte	'float32',0,8,167,1,29
+	.word	1335
+	.byte	12
+	.byte	'void',0,3
+	.word	1361
+	.byte	10
+	.byte	'pvoid',0,9,57,28
+	.word	1367
+	.byte	10
+	.byte	'Ifx_TickTime',0,9,79,28
+	.word	1302
+	.byte	2
+	.byte	'char',0,1,6,10
+	.byte	'int8',0,10,54,29
+	.word	1407
+	.byte	10
+	.byte	'int16',0,10,55,29
+	.word	977
+	.byte	10
+	.byte	'int32',0,10,56,29
+	.word	1041
+	.byte	10
+	.byte	'int64',0,10,57,29
+	.word	1302
+	.byte	7,11,78,9,1,8
+	.byte	'FIFO_DATA_8BIT',0,0,8
+	.byte	'FIFO_DATA_16BIT',0,1,8
+	.byte	'FIFO_DATA_32BIT',0,2,0,10
+	.byte	'fifo_data_type_enum',0,11,83,2
+	.word	1470
+	.byte	13,3,131,1,9,4,14
+	.byte	'command',0
+	.word	232
+	.byte	1,2,35,0,14
+	.byte	'reserve',0
+	.word	232
+	.byte	1,2,35,1,14
+	.byte	'length',0
+	.word	1132
+	.byte	2,2,35,2,0,10
+	.byte	'wifi_spi_head_struct',0,3,136,1,2
+	.word	1557
+	.byte	7,4,83,9,1,8
+	.byte	'WIFI_UART_STATION',0,0,8
+	.byte	'WIFI_UART_SOFTAP',0,1,0,10
+	.byte	'wifi_uart_mode_enum',0,4,87,2
+	.word	1644
+	.byte	7,4,89,9,1,8
+	.byte	'WIFI_UART_COMMAND',0,0,8
+	.byte	'WIFI_UART_SERIANET',0,1,0,10
+	.byte	'wifi_uart_transfer_mode_enum',0,4,93,2
+	.word	1717
+	.byte	7,4,95,9,1,8
+	.byte	'WIFI_UART_TCP_CLIENT',0,0,8
+	.byte	'WIFI_UART_TCP_SERVER',0,1,8
+	.byte	'WIFI_UART_UDP_CLIENT',0,2,0,10
+	.byte	'wifi_uart_connect_mode_enum',0,4,100,2
+	.word	1801
+	.byte	7,4,102,9,1,8
+	.byte	'WIFI_UART_SERVER_OFF',0,0,8
+	.byte	'WIFI_UART_SERVER_ON',0,1,0,10
+	.byte	'wifi_uart_connect_state_enum',0,4,106,2
+	.word	1912
+	.byte	15,4
+	.word	232
+	.byte	16,3,0,17,12,158,1,9,4,14
+	.byte	'data_uint8',0
+	.word	2000
+	.byte	4,2,35,0,14
+	.byte	'data_float',0
+	.word	1335
+	.byte	4,2,35,0,0,10
+	.byte	'seekfree_assistant_param_struct',0,12,162,1,2
+	.word	2009
+	.byte	6
+	.word	232
+	.byte	3
+	.word	2097
+	.byte	18
+	.word	211
+	.byte	1,1,19
+	.word	2102
+	.byte	19
+	.word	211
+	.byte	0,3
+	.word	2107
+	.byte	10
+	.byte	'seekfree_assistant_transfer_callback_function',0,12,193,1,18
+	.word	2125
+	.byte	3
+	.word	232
+	.byte	18
+	.word	211
+	.byte	1,1,19
+	.word	2185
+	.byte	19
+	.word	211
+	.byte	0,3
+	.word	2190
+	.byte	10
+	.byte	'seekfree_assistant_receive_callback_function',0,12,194,1,18
+	.word	2208
+	.byte	10
+	.byte	'seekfree_assistant_transfer_device_enum',0,5,50,2
+	.word	767
+	.byte	20
+	.byte	'seekfree_assistant_transfer_callback',0,6,48,56
+	.word	2130
+	.byte	1,1,3
+	.word	2107
+	.byte	20
+	.byte	'seekfree_assistant_receive_callback',0,6,49,56
+	.word	2213
+	.byte	1,1,3
+	.word	2190
+	.byte	0
+	.sdecl	'.debug_abbrev',debug
+	.sect	'.debug_abbrev'
+.L22:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,16,6,0,0,2,36,0,3,8,11,15,62,15,0,0,3,15,0,73,19,0,0,4,46,1,3,8,58
+	.byte	15,59,15,57,15,73,19,54,15,39,12,63,12,60,12,0,0,5,5,0,3,8,58,15,59,15,57,15,73,19,0,0,6,38,0,73,19,0
+	.byte	0,7,4,1,58,15,59,15,57,15,11,15,0,0,8,40,0,3,8,28,13,0,0,9,46,0,3,8,58,15,59,15,57,15,54,15,63,12,60,12
+	.byte	0,0,10,22,0,3,8,58,15,59,15,57,15,73,19,0,0,11,21,0,54,15,0,0,12,59,0,3,8,0,0,13,19,1,58,15,59,15,57,15
+	.byte	11,15,0,0,14,13,0,3,8,73,19,11,15,56,9,0,0,15,1,1,11,15,73,19,0,0,16,33,0,47,15,0,0,17,23,1,58,15,59,15
+	.byte	57,15,11,15,0,0,18,21,1,73,19,54,15,39,12,0,0,19,5,0,73,19,0,0,20,52,0,3,8,58,15,59,15,57,15,73,19,63
+	.byte	12,60,12,0,0,0
+	.sdecl	'.debug_line',debug
+	.sect	'.debug_line'
+.L23:
+	.word	.L53-.L52
+.L52:
+	.half	3
+	.word	.L55-.L54
+.L54:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1
+	.byte	'D:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\zf_common',0
+	.byte	'D:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\zf_device',0
+	.byte	'D:\\HP\\AURIX\\AURIX-Studio-1.10.2\\tools\\Compilers\\Tasking_1.1r8\\ctc\\include\\',0
+	.byte	'D:\\\\das_workspace\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\Std',0
+	.byte	0
+	.byte	'zf_common_debug.h',0,1,0,0
+	.byte	'zf_device_wireless_uart.h',0,2,0,0
+	.byte	'zf_device_wifi_spi.h',0,2,0,0
+	.byte	'zf_device_wifi_uart.h',0,2,0,0
+	.byte	'..\\libraries\\zf_components\\seekfree_assistant_interface.h',0,0,0,0
+	.byte	'../libraries/zf_components/seekfree_assistant_interface.c',0,0,0,0
+	.byte	'stdio.h',0,3,0,0
+	.byte	'Platform_Types.h',0,4,0,0
+	.byte	'ifx_types.h',0,4,0,0
+	.byte	'zf_common_typedef.h',0,1,0,0
+	.byte	'zf_common_fifo.h',0,1,0,0
+	.byte	'..\\libraries\\zf_components\\seekfree_assistant.h',0,0,0,0,0
+.L55:
+.L53:
+	.sdecl	'.debug_info',debug,cluster('seekfree_assistant_interface_init')
+	.sect	'.debug_info'
+.L24:
+	.word	308
+	.half	3
+	.word	.L25
+	.byte	4,1
+	.byte	'../libraries/zf_components/seekfree_assistant_interface.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\das_workspace\\Seekfree_TC264_Opensource_Library\\Debug\\',0,12,1
+	.word	.L27,.L26
+	.byte	2
+	.word	.L20
+	.byte	3
+	.byte	'seekfree_assistant_interface_init',0,1,85,6,1,1,1
+	.word	.L19,.L39,.L18
+	.byte	4
+	.byte	'transfer_device',0,1,85,81
+	.word	.L40,.L41
+	.byte	5
+	.word	.L19,.L39
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('seekfree_assistant_interface_init')
+	.sect	'.debug_abbrev'
+.L25:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.byte	39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('seekfree_assistant_interface_init')
+	.sect	'.debug_line'
+.L26:
+	.word	.L57-.L56
+.L56:
+	.half	3
+	.word	.L59-.L58
+.L58:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../libraries/zf_components/seekfree_assistant_interface.c',0,0,0,0,0
+.L59:
+	.byte	5,14,7,0,5,2
+	.word	.L19
+	.byte	3,216,0,1,9
+	.half	.L60-.L19
+	.byte	3,6,1,5,15,9
+	.half	.L61-.L60
+	.byte	3,12,1,5,14,9
+	.half	.L62-.L61
+	.byte	3,6,1,5,13,9
+	.half	.L4-.L62
+	.byte	3,106,1,5,52,9
+	.half	.L63-.L4
+	.byte	1,5,50,9
+	.half	.L64-.L63
+	.byte	1,5,13,9
+	.half	.L65-.L64
+	.byte	3,1,1,5,51,9
+	.half	.L66-.L65
+	.byte	1,5,49,9
+	.half	.L67-.L66
+	.byte	1,5,10,9
+	.half	.L68-.L67
+	.byte	3,1,1,5,13,9
+	.half	.L5-.L68
+	.byte	3,4,1,5,52,9
+	.half	.L69-.L5
+	.byte	1,5,50,9
+	.half	.L70-.L69
+	.byte	1,5,13,9
+	.half	.L71-.L70
+	.byte	3,1,1,5,51,9
+	.half	.L72-.L71
+	.byte	1,5,49,9
+	.half	.L73-.L72
+	.byte	1,5,10,9
+	.half	.L74-.L73
+	.byte	3,1,1,5,14,9
+	.half	.L6-.L74
+	.byte	3,10,1,5,53,9
+	.half	.L75-.L6
+	.byte	1,5,51,9
+	.half	.L76-.L75
+	.byte	1,5,14,9
+	.half	.L77-.L76
+	.byte	3,1,1,5,52,9
+	.half	.L78-.L77
+	.byte	1,5,50,9
+	.half	.L79-.L78
+	.byte	1,5,11,9
+	.half	.L80-.L79
+	.byte	3,1,1,5,13,9
+	.half	.L7-.L80
+	.byte	3,4,1,5,52,9
+	.half	.L81-.L7
+	.byte	1,5,50,9
+	.half	.L82-.L81
+	.byte	1,5,13,9
+	.half	.L83-.L82
+	.byte	3,1,1,5,51,9
+	.half	.L84-.L83
+	.byte	1,5,49,9
+	.half	.L85-.L84
+	.byte	1,5,10,9
+	.half	.L86-.L85
+	.byte	3,1,1,5,13,9
+	.half	.L8-.L86
+	.byte	3,5,1,5,52,9
+	.half	.L87-.L8
+	.byte	1,5,50,9
+	.half	.L88-.L87
+	.byte	1,5,13,9
+	.half	.L89-.L88
+	.byte	3,1,1,5,51,9
+	.half	.L90-.L89
+	.byte	1,5,49,9
+	.half	.L91-.L90
+	.byte	1,5,10,9
+	.half	.L92-.L91
+	.byte	3,1,1,5,1,9
+	.half	.L9-.L92
+	.byte	3,2,1,7,9
+	.half	.L28-.L9
+	.byte	0,1,1
+.L57:
+	.sdecl	'.debug_ranges',debug,cluster('seekfree_assistant_interface_init')
+	.sect	'.debug_ranges'
+.L27:
+	.word	-1,.L19,0,.L28-.L19,0,0
+	.sdecl	'.debug_info',debug,cluster('seekfree_assistant_transfer')
+	.sect	'.debug_info'
+.L29:
+	.word	314
+	.half	3
+	.word	.L30
+	.byte	4,1
+	.byte	'../libraries/zf_components/seekfree_assistant_interface.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\das_workspace\\Seekfree_TC264_Opensource_Library\\Debug\\',0,12,1
+	.word	.L32,.L31
+	.byte	2
+	.word	.L20
+	.byte	3
+	.byte	'seekfree_assistant_transfer',0,1,58,8
+	.word	.L42
+	.byte	1,1,1
+	.word	.L15,.L43,.L14
+	.byte	4
+	.byte	'buff',0,1,58,50
+	.word	.L44,.L45
+	.byte	4
+	.byte	'length',0,1,58,63
+	.word	.L42,.L46
+	.byte	5
+	.word	.L15,.L43
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('seekfree_assistant_transfer')
+	.sect	'.debug_abbrev'
+.L30:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('seekfree_assistant_transfer')
+	.sect	'.debug_line'
+.L31:
+	.word	.L94-.L93
+.L93:
+	.half	3
+	.word	.L96-.L95
+.L95:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../libraries/zf_components/seekfree_assistant_interface.c',0,0,0,0,0
+.L96:
+	.byte	5,5,7,0,5,2
+	.word	.L15
+	.byte	3,61,1,5,1,9
+	.half	.L2-.L15
+	.byte	3,1,1,7,9
+	.half	.L33-.L2
+	.byte	0,1,1
+.L94:
+	.sdecl	'.debug_ranges',debug,cluster('seekfree_assistant_transfer')
+	.sect	'.debug_ranges'
+.L32:
+	.word	-1,.L15,0,.L33-.L15,0,0
+	.sdecl	'.debug_info',debug,cluster('seekfree_assistant_receive')
+	.sect	'.debug_info'
+.L34:
+	.word	313
+	.half	3
+	.word	.L35
+	.byte	4,1
+	.byte	'../libraries/zf_components/seekfree_assistant_interface.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\das_workspace\\Seekfree_TC264_Opensource_Library\\Debug\\',0,12,1
+	.word	.L37,.L36
+	.byte	2
+	.word	.L20
+	.byte	3
+	.byte	'seekfree_assistant_receive',0,1,72,8
+	.word	.L42
+	.byte	1,1,1
+	.word	.L17,.L47,.L16
+	.byte	4
+	.byte	'buff',0,1,72,43
+	.word	.L48,.L49
+	.byte	4
+	.byte	'length',0,1,72,56
+	.word	.L42,.L50
+	.byte	5
+	.word	.L17,.L47
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('seekfree_assistant_receive')
+	.sect	'.debug_abbrev'
+.L35:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('seekfree_assistant_receive')
+	.sect	'.debug_line'
+.L36:
+	.word	.L98-.L97
+.L97:
+	.half	3
+	.word	.L100-.L99
+.L99:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../libraries/zf_components/seekfree_assistant_interface.c',0,0,0,0,0
+.L100:
+	.byte	5,12,7,0,5,2
+	.word	.L17
+	.byte	3,202,0,1,5,5,9
+	.half	.L101-.L17
+	.byte	1,5,1,9
+	.half	.L3-.L101
+	.byte	3,1,1,7,9
+	.half	.L38-.L3
+	.byte	0,1,1
+.L98:
+	.sdecl	'.debug_ranges',debug,cluster('seekfree_assistant_receive')
+	.sect	'.debug_ranges'
+.L37:
+	.word	-1,.L17,0,.L38-.L17,0,0
+	.sdecl	'.debug_loc',debug,cluster('seekfree_assistant_interface_init')
+	.sect	'.debug_loc'
+.L18:
+	.word	-1,.L19,0,.L39-.L19
+	.half	2
+	.byte	138,0
+	.word	0,0
+.L41:
+	.word	-1,.L19,0,.L39-.L19
+	.half	1
+	.byte	84
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('seekfree_assistant_receive')
+	.sect	'.debug_loc'
+.L49:
+	.word	-1,.L17,0,.L47-.L17
+	.half	1
+	.byte	100
+	.word	0,0
+.L50:
+	.word	-1,.L17,0,.L47-.L17
+	.half	1
+	.byte	84
+	.word	0,0
+.L16:
+	.word	-1,.L17,0,.L47-.L17
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('seekfree_assistant_transfer')
+	.sect	'.debug_loc'
+.L45:
+	.word	-1,.L15,0,.L43-.L15
+	.half	1
+	.byte	100
+	.word	0,0
+.L46:
+	.word	-1,.L15,0,.L43-.L15
+	.half	1
+	.byte	84
+	.word	.L51-.L15,.L43-.L15
+	.half	1
+	.byte	82
+	.word	0,0
+.L14:
+	.word	-1,.L15,0,.L43-.L15
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_frame',debug
+	.sect	'.debug_frame'
+.L102:
+	.word	48
+	.word	-1
+	.byte	3,0,2,1,27,12,26,0,8,26,8,27,8,30,8,29,8,28,8,16,8,17,8,24,8,25,8,31,8,32,8,33,8,34,8,35,8,36,8,37,8,38
+	.byte	8,39
+	.sdecl	'.debug_frame',debug,cluster('seekfree_assistant_transfer')
+	.sect	'.debug_frame'
+	.word	24
+	.word	.L102,.L15,.L43-.L15
+	.byte	8,18,8,19,8,20,8,21,8,22,8,23
+	.sdecl	'.debug_frame',debug,cluster('seekfree_assistant_receive')
+	.sect	'.debug_frame'
+	.word	24
+	.word	.L102,.L17,.L47-.L17
+	.byte	8,18,8,19,8,20,8,21,8,22,8,23
+	.sdecl	'.debug_frame',debug,cluster('seekfree_assistant_interface_init')
+	.sect	'.debug_frame'
+	.word	24
+	.word	.L102,.L19,.L39-.L19
+	.byte	8,19,8,20,8,21,8,22,8,23,0,0
+	; Module end
