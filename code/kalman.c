@@ -9,7 +9,7 @@
 
 
 extKalman_t kf_gz;   // 过滤 Z 轴角速度
-extKalman_t kf_yaw;  // 过滤最终偏航角
+//extKalman_t kf_yaw;  // 过滤最终偏航角
 
 /**
   * @author  Liu heng
@@ -79,5 +79,5 @@ float KalmanFilter(extKalman_t* p,float dat)
 void filter_Init(void)
 {
     KalmanCreate(&kf_gz, 20, 100);
-    KalmanCreate(&kf_yaw, 5, 50);
+  //  KalmanCreate(&kf_yaw, 5, 50);
 }

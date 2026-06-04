@@ -60,40 +60,40 @@ void core1_main(void)
     {
         // 此处编写需要循环执行的代码
 
- if(app_mode==APP_MODE_IMAGE)
-        {
-               if(scc8660_finish_flag)
-               {
-                   //ips200_show_string(150, 150, "FRAME");
-                   // 发送图像
+// if(app_mode==APP_MODE_IMAGE)
+//        {
+//               if(scc8660_finish_flag)
+//               {
+//                   //ips200_show_string(150, 150, "FRAME");
+//                   // 发送图像
+////                   scc8660_finish_flag = 0;
+//                   // 判断按键是否按下
+//                   if(key3_flag)
+//                   {
+//                       key3_flag=0;
+//
+//                       // 通过图像中心数据设置色块识别阈值
+//                       set_color_target_condi(scc8660_image[SCC8660_H / 2][SCC8660_W / 2], &target_color_condi);
+//                   }
+//
+//                   // 显示图像
+//                   ips200_displayimage8660((const uint16 *)scc8660_image, SCC8660_W, SCC8660_H);
+//
+//                   // 色块识别
+//                   if(color_trace(&target_color_condi, &target_pos_out))
+//                   {
+//                       // 识别到目标后将目标框出来
+//
+//                       ips200_draw_line((target_pos_out.x - target_pos_out.w/2), (target_pos_out.y - target_pos_out.h/2), (target_pos_out.x + target_pos_out.w/2), (target_pos_out.y - target_pos_out.h/2), RGB565_WHITE);
+//                       ips200_draw_line((target_pos_out.x - target_pos_out.w/2), (target_pos_out.y - target_pos_out.h/2), (target_pos_out.x - target_pos_out.w/2), (target_pos_out.y + target_pos_out.h/2), RGB565_WHITE);
+//                       ips200_draw_line((target_pos_out.x - target_pos_out.w/2), (target_pos_out.y + target_pos_out.h/2), (target_pos_out.x + target_pos_out.w/2), (target_pos_out.y + target_pos_out.h/2), RGB565_WHITE);
+//                       ips200_draw_line((target_pos_out.x + target_pos_out.w/2), (target_pos_out.y - target_pos_out.h/2), (target_pos_out.x + target_pos_out.w/2), (target_pos_out.y + target_pos_out.h/2), RGB565_WHITE);
+//                   }
 //                   scc8660_finish_flag = 0;
-                   // 判断按键是否按下
-                   if(key3_flag)
-                   {
-                       key3_flag=0;
-
-                       // 通过图像中心数据设置色块识别阈值
-                       set_color_target_condi(scc8660_image[SCC8660_H / 2][SCC8660_W / 2], &target_color_condi);
-                   }
-
-                   // 显示图像
-                   ips200_displayimage8660((const uint16 *)scc8660_image, SCC8660_W, SCC8660_H);
-
-                   // 色块识别
-                   if(color_trace(&target_color_condi, &target_pos_out))
-                   {
-                       // 识别到目标后将目标框出来
-
-                       ips200_draw_line((target_pos_out.x - target_pos_out.w/2), (target_pos_out.y - target_pos_out.h/2), (target_pos_out.x + target_pos_out.w/2), (target_pos_out.y - target_pos_out.h/2), RGB565_WHITE);
-                       ips200_draw_line((target_pos_out.x - target_pos_out.w/2), (target_pos_out.y - target_pos_out.h/2), (target_pos_out.x - target_pos_out.w/2), (target_pos_out.y + target_pos_out.h/2), RGB565_WHITE);
-                       ips200_draw_line((target_pos_out.x - target_pos_out.w/2), (target_pos_out.y + target_pos_out.h/2), (target_pos_out.x + target_pos_out.w/2), (target_pos_out.y + target_pos_out.h/2), RGB565_WHITE);
-                       ips200_draw_line((target_pos_out.x + target_pos_out.w/2), (target_pos_out.y - target_pos_out.h/2), (target_pos_out.x + target_pos_out.w/2), (target_pos_out.y + target_pos_out.h/2), RGB565_WHITE);
-                   }
-                   scc8660_finish_flag = 0;
-
-               }
-
-        }
+//
+//               }
+//
+//        }
         // 此处编写需要循环执行的代码
     }
 }

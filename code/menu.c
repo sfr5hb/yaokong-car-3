@@ -18,15 +18,16 @@ app_mode_t app_mode = APP_MODE_MENU;
 
 //菜单对应的数组列表
 menu_item menu[]={
-    {1, "Navigation", NULL, NULL},
-    {11, "Enter Nav", menu_enter_navigation, NULL},
-    {12, "Back to Main", NULL, NULL},
+        //科目一
+    {1, "Subject1", NULL, NULL},
+    {11, "Enter S1", menu_enter_subject1, NULL},
+    {12, "Back", NULL, NULL},
     //之后可能还是需要图像处理，所以菜单部分加上了图像处理的选择；
-
-    {3, "Image Mode", NULL, NULL},                                         // 图像模式
-    {31, "Image view", menu_enter_inage, NULL},                                  // 显示原边线
+         //科目三
+    {3, "Subject3", NULL, NULL},                                         // 图像模式
+    {31, "Enter S3", menu_enter_subject3, NULL},                                  // 显示原边线
     //{32, "Image Follow", menu_12, NULL},                                  // 图像菜单2
-    {37, "Back to Main", NULL, NULL},                                      // 回到主菜单
+    {37, "Back", NULL, NULL},                                      // 回到主菜单
 
     {2, "Tuning Mode", NULL, NULL},                                        // 调参模式
     {21, "Motor", NULL, NULL},                                   // 电机参数调整
@@ -69,12 +70,23 @@ menu_item menu[]={
 
 menu_item *current_menu_item;
 
+static int s_last_parent    = -1;
+static int s_last_highlight = -1;
+
+
 //进入导航模式（科目一）
-void menu_enter_navigation(float32 *param, char name[30])
+void menu_enter_subject1(float32 *param, char name[30])
 {
     (void)param;
     (void)name;
-    app_mode = APP_MODE_NAVIGATION;
+    // 进入时自动读取Flash路径
+        int16 n = 0;
+        nav_flash_load(subject1_get_x(), subject1_get_y(), &n);
+        subject1_set_num(n);
+
+
+        subject1_stop();
+        app_mode = APP_MODE_SUBJECT1;
     key_flag_clear();
     ips200_clear();
 //    ips200_show_string(1, 0, "Navigation");
@@ -82,19 +94,44 @@ void menu_enter_navigation(float32 *param, char name[30])
 //    ips200_show_string(1, 60, "K2 Replay");
     ips200_show_string(1, 90, "K4 Back");
 }
-//进入图像查看模式（科目三）
-void menu_enter_inage(float32 *param,char name[30])
-{
 
-    (void)param;
-    (void)name;
+
+void menu_enter_subject3(float32 *param, char name[30])
+{
+    (void)param; (void)name;
+
+    // 进入时自动读取Flash路径（上次保存的可直接用）
+    int16 n = 0;
+    rc_flash_load(subject3_get_x(), subject3_get_y(), &n);
+    subject3_set_num(n);
+
+    app_mode = APP_MODE_SUBJECT3;
     key_flag_clear();
     ips200_clear();
-
-    app_mode=APP_MODE_IMAGE;
-   // ips200_clear();
-   // ips200_show_string(0, 90, "K4: Back");
+    ips200_show_string(0,  0, "Subject3");
+    ips200_show_string(0, 20, "K1:Drive+Rec");
+    ips200_show_string(0, 40, "K2:Stop&Save");
+    ips200_show_string(0, 60, "K3:Return");
+    ips200_show_string(0, 80, "K4:Back");
 }
+
+
+////进入图像查看模式（科目三）
+//void menu_enter_inage(float32 *param,char name[30])
+//{
+//
+//    (void)param;
+//    (void)name;
+//    key_flag_clear();
+//    ips200_clear();
+//
+//    app_mode=APP_MODE_IMAGE;
+//   // ips200_clear();
+//   // ips200_show_string(0, 90, "K4: Back");
+//}
+
+
+
 
 
 //进入人车跟随模式
@@ -115,7 +152,11 @@ void key_flag_clear(void)
     key4_flag=0;
 }
 
-
+void menu_reset(void)
+{
+    s_last_parent    = -1;
+    s_last_highlight = -1;
+}
 
 bool have_sub_menu(int menu_id)//查看是否存在子菜单
 {
@@ -160,7 +201,17 @@ void Menu_Switch(void)
     static int parent_menu_id=0;
     static int highlight_col=0;//设定高亮行号
     static int menu_item_count=0;
-    menu_item_count=show_sub_menu(parent_menu_id,highlight_col);
+
+    // 只在状态变化时重绘，避免闪烁
+    if(parent_menu_id != s_last_parent || highlight_col != s_last_highlight)
+     {
+        menu_item_count  = show_sub_menu(parent_menu_id, highlight_col);
+        s_last_parent    = parent_menu_id;
+        s_last_highlight = highlight_col;
+       }
+
+
+    //menu_item_count=show_sub_menu(parent_menu_id,highlight_col);
 
     if(key_switch())
         {
@@ -198,7 +249,7 @@ void Menu_Switch(void)
          //menu_item_count = show_sub_menu(parent_menu_id, highlight_col);
          key_flag_clear();
         }
-    system_delay_ms(10);
+    system_delay_ms(5);
     }
 
 void flash_storage(void)

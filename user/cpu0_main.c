@@ -57,10 +57,6 @@
 
 // **************************** 代码区域 ****************************
 
-//#define REFRESH_TARGET  P20_6                                                   //识别目
-
-
-//seekfree_assistant_debug_param_struct debug_para;
 int core0_main(void)
 {
     clock_init();                   // 获取时钟频率<务必保留>
@@ -70,10 +66,11 @@ int core0_main(void)
 
 
     // 此处编写用户代码 例如外设初始化代码等
+        Encoder_init();
         mykey_Init();
         scc8660_init();
         ips200_init(IPS200_TYPE_SPI);
-        Encoder_init();//由于初始化位置影响，会在刚开始有几秒编码器初始化失败的信息，但是不影响
+        //Encoder_init();//由于初始化位置影响，会在刚开始有几秒编码器初始化失败的信息，但是不影响
         Motor_Init();
         //PId初始化
         SteerAngle_Init();
@@ -87,61 +84,52 @@ int core0_main(void)
 
 
         pit_ms_init(CCU60_CH0,5);
-        pit_ms_init(CCU60_CH1,5);
+       // pit_ms_init(CCU60_CH1,5);
    // 此处编写用户代码 例如外设初始化代码等
 	cpu_wait_event_ready();         // 等待所有核心初始化完毕
 	while (TRUE)
 	{
+	    key_scan();
 
-    // key_scan();
 	    switch(app_mode)
-	              {
-	                  case APP_MODE_MENU:
-	                      Menu_Switch();
-	                      break;
-	      //
-	                  case APP_MODE_NAVIGATION:
-	                      nav_task();
+	            {
+	                case APP_MODE_MENU:
+	                    if(key_switch())
+	                        Menu_Switch();
+	                    break;
 
-	                      if(key4_flag)
-	                                       {
-	                                           app_mode = APP_MODE_MENU;
-	                                           key_flag_clear();
-	                                           ips200_clear();//退出前清屏，让菜单有干净的底色
-	                                           Menu_Switch();
+	                case APP_MODE_SUBJECT1:
+	                    subject1_task();
+	                    ips200_show_float(0,150,yaw,3,5);
+	                    if(key4_flag)
+	                    {
+	                        subject1_stop();
+	                        app_mode = APP_MODE_MENU;
+	                        key_flag_clear();
+	                        ips200_clear();
+	                        menu_reset();
+	                    }
+	                    break;
 
-	                                       }
-	    //                  else
-	    //                  {
-	    //                      nav_task();
-	    //                      ips200_show_float(0, 0, angle,4, 5);
-	    //                      ips200_show_float(0, 40, yaw, 3, 5);
-	    //                  }
-	                      break;
+	                case APP_MODE_SUBJECT3:
+	                    subject3_task();
+	                    if(key4_flag)
+	                    {
+	                        subject3_stop();
+	                        app_mode = APP_MODE_MENU;
+	                        key_flag_clear();
+	                        ips200_clear();
+	                        menu_reset();
+	                    }
+	                    break;
 
-	                     // 摄像头部分（关于图像采集识别部分放在另一个cpu）
+	                default:
+	                    app_mode = APP_MODE_MENU;
+	                    break;
+	            }
 
+	            system_delay_ms(1);
 
-	                  case APP_MODE_IMAGE:
-
-
-
-	                      if(key4_flag)
-	                      {
-	                          app_mode = APP_MODE_MENU;
-	                          key_flag_clear();
-	                          ips200_clear();//退出前清屏，让菜单有干净的底色
-	                          Menu_Switch();
-
-	                      }
-	                      break;
-
-	                  default:
-	                      app_mode = APP_MODE_MENU;
-	                      break;
-	              }
-
-	              system_delay_ms(50);
 
 
         // 此处编写需要循环执行的代码
