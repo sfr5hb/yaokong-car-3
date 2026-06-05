@@ -29,6 +29,9 @@ typedef struct {
     float      record_interval; // 记录间隔（米）
     float      arrive_dist;     // 到点判定距离（米）
     path_dir_t direction;       // 复现方向
+
+    float      nav_out_1;//转角输出，根据这个输出调整速度
+    uint8 point_flag;//防抖标志位，只有在距离大于某个判定距离之后再切换点位
 } path_t;
 
 int path_replay(path_t *p);

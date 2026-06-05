@@ -87,6 +87,7 @@ int core0_main(void)
        // pit_ms_init(CCU60_CH1,5);
    // 此处编写用户代码 例如外设初始化代码等
 	cpu_wait_event_ready();         // 等待所有核心初始化完毕
+	Menu_Switch();
 	while (TRUE)
 	{
 	    key_scan();

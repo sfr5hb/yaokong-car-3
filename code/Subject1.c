@@ -36,6 +36,9 @@ static path_t nav_path = {
     .record_interval = 0.80f,
     .arrive_dist     = 0.50f,
     .direction       = PATH_FORWARD,
+
+    .point_flag      = 0,
+    .nav_out_1    = 0.0f,
 };
 
 //// Flash存取用的外部接口（flash.c里实现）
@@ -54,6 +57,7 @@ static float  daoche_actdist = 0.0f;
 
 const float mileage_me_l=0.000429f;
 const float mileage_me_r=0.000424f;
+
 float DELTA_D(void)
 {
     int32 count_l=0;
@@ -157,10 +161,19 @@ void subject1_task(void)
         int still_going = path_replay(&nav_path);
         if(still_going)
         {
-            Motor_Speed(20.0f, 1);
+           // Motor_Speed(20.0f, 1);
+            float err=fabsf(nav_path.nav_out_1);
+            float speed_c;
+            if(err>30.0f)  speed_c=10.0f;
+            else if(err>20.0f)  speed_c=15.0f;
+            else speed_c=20.0f;
+
+            Motor_Speed(speed_c, 1);
+
             ips200_show_int(0,   20, nav_idx, 3);
             ips200_show_float(0, 40, (float)nav_cur_x, 2, 3);
             ips200_show_float(0, 60, (float)nav_cur_y, 2, 3);
+            ips200_show_float(0, 80, nav_path.nav_out_1, 2, 2);
         }
         else
         {

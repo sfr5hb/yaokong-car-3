@@ -13,6 +13,7 @@
 
 #include "zf_common_headfile.h"
 
+//float g_nav_out=0.0f;
 //位置更新
 
 void post_update(path_t *p,float delta_d)
@@ -57,8 +58,15 @@ int path_replay(path_t *p)
     float  dist = sqrtf((float)(dx*dx + dy*dy));
 
      // 到点切换
-    if(dist < p->arrive_dist)
+    if(dist>p->arrive_dist)p->point_flag=0;
+
+    if(dist < p->arrive_dist&&p->point_flag==0)
      {
+          p->point_flag=1;
+           // 切换点时清导航PID积分，防止过弯过冲
+          NavPID.integrator = 0.0f;
+          NavPID.last_error = 0.0f;
+
           if(p->direction == PATH_FORWARD) (*(p->target_idx))++;
           else                             (*(p->target_idx))--;
 
@@ -79,6 +87,7 @@ int path_replay(path_t *p)
       if(yaw_relative < -180.0f) yaw_relative += 360.0f;
 
       float nav_out = Nav_ctl(target_yaw, yaw_relative);
+      p->nav_out_1 = nav_out;
       Motor_Ctrl(SteerAngle_Ctrl(nav_out, angle));
 
       return 1;
