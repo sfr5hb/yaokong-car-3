@@ -189,17 +189,13 @@ void Motor_PID_Init(void)
         LeftPID.ki=0.05f;
         LeftPID.kd=0.05f;
         LeftPID.out_limit=45.0f;
-        LeftPID.last_error=0;
-        LeftPID.last_last_error=0;
-        LeftPID.last_output=0;
+        Speed_PID_Reset(&LeftPID);
 
             RightPID.kp=1.2f;
             RightPID.ki=0.04f;
             RightPID.kd=0.05f;
             RightPID.out_limit=45.0f;
-            RightPID.last_error=0;
-            RightPID.last_last_error=0;
-            RightPID.last_error=0;
+            Speed_PID_Reset(&RightPID);
 
 
 //    RightPID.kp=0.4f;
@@ -212,6 +208,13 @@ void Motor_PID_Init(void)
 
 }
 
+void Speed_Reset(Speed_PID_t *pid)
+{
+    pid->last_error = 0.0f;
+    pid->last_last_error = 0.0f;
+    pid->last_output = 0.0f;
+    pid->integrator = 0.0f;
+}
 //单轮PID计算
 //增量式pid
 float Speed_PID(Speed_PID_t *pid,float target_speed,float current_speed)
@@ -266,3 +269,6 @@ float SPEED_POS(Speed_PID_t *pid,float target,float current)
 
     return pid->last_output;
 }
+
+
+

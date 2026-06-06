@@ -148,6 +148,23 @@ IFX_INTERRUPT(cc60_pit_ch0_isr, 0, CCU6_0_CH0_ISR_PRIORITY)
     Encoder_GET();
 
 
+    //电机中断
+    float duty_l = SPEED_POS(&LeftPID, speed, speed_left);
+    float duty_r = SPEED_POS(&RightPID,speed, speed_right);
+    Motor_OUT(duty_l, duty_r, dirt_flag);
+
+    Motor_Ctrl(SteerAngle_Ctrl(NavPID.out_put, angle));
+
+
+    //pid放进中断，还有几个问题没有解决：我觉得不需要增加新的变量(6.6改好)
+    //科目一改成切点防抖以及转角适应速度（改了科目一）
+    //科目三还没有改
+
+
+
+
+
+
 }
 // **************************** 代码区域 ****************************
 
@@ -158,3 +175,5 @@ IFX_INTERRUPT(cc60_pit_ch0_isr, 0, CCU6_0_CH0_ISR_PRIORITY)
 //      检查模块是否正确连接供电 必须使用电源线供电 不能使用杜邦线
 //      查看程序是否正常烧录，是否下载报错，确认正常按下复位按键
 //      万用表测量对应 PWM 引脚电压是否变化，如果不变化证明程序未运行，或者引脚损坏，或者接触不良 联系技术客服
+
+

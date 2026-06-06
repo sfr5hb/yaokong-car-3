@@ -36,12 +36,16 @@
 extern float steer_duty;
 extern float speed_left;
 extern float speed_right;
-extern float target_pulse;
+extern float speed;
+extern uint8 dirt_flag;
 
 void Motor_Init(void);
 void Motor_Ctrl(float duty);
 
 void Motor_Speed(float target_speed,uint8 reverse);
-
+//void Motor_PWM_Output(float duty_l,float duty_r,uint8 direction);
+void Motor_OUT(float duty_l,float duty_r,uint8 direction)
 
 #endif /* CODE_MOTOR_H_ */
+
+
