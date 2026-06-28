@@ -104,50 +104,50 @@ int core0_main(void)
 //	    ips200_show_float(120,120,angle,3,5);
 
 //
-//	    key_scan();
-////
-////	    //speed_c=50.0f;
-////	   // Motor_OUT(20.0f,20.0f,1);
-////
-//	    switch(app_mode)
-//	            {
-//	                case APP_MODE_MENU:
-//	                    Steer_target=0.0f;
-//	                    if(key_switch())
-//	                        Menu_Switch();
-//	                    break;
+	    key_scan();
 //
-//	                case APP_MODE_SUBJECT1:
-//	                    //Steer_target = 30.0f;
+//	    //speed_c=50.0f;
+//	   // Motor_OUT(20.0f,20.0f,1);
 //
-//	                    subject1_task();
-//	                   // ips200_show_float(0,150,angle,3,5);
-//	                    if(key4_flag)
-//	                    {
-//	                        subject1_stop();
-//	                        app_mode = APP_MODE_MENU;
-//	                        key_flag_clear();
-//	                        ips200_clear();
-//	                        menu_reset();
-//	                    }
-//	                    break;
-//
-//	                case APP_MODE_SUBJECT3:
-//	                    subject3_task();
-//	                    if(key4_flag)
-//	                    {
-//	                        subject3_stop();
-//	                        app_mode = APP_MODE_MENU;
-//	                        key_flag_clear();
-//	                        ips200_clear();
-//	                        menu_reset();
-//	                    }
-//	                    break;
-//
-//	                default:
-//	                    app_mode = APP_MODE_MENU;
-//	                    break;
-//	            }
+	    switch(app_mode)
+	            {
+	                case APP_MODE_MENU:
+	                    Steer_target=0.0f;
+	                    if(key_switch())
+	                        Menu_Switch();
+	                    break;
+
+	                case APP_MODE_SUBJECT1:
+	                    //Steer_target = 30.0f;
+
+	                    subject1_task();
+	                   // ips200_show_float(0,150,angle,3,5);
+	                    if(key4_flag)
+	                    {
+	                        subject1_stop();
+	                        app_mode = APP_MODE_MENU;
+	                        key_flag_clear();
+	                        ips200_clear();
+	                        menu_reset();
+	                    }
+	                    break;
+
+	                case APP_MODE_SUBJECT3:
+	                    subject3_task();
+	                    if(key4_flag)
+	                    {
+	                        subject3_stop();
+	                        app_mode = APP_MODE_MENU;
+	                        key_flag_clear();
+	                        ips200_clear();
+	                        menu_reset();
+	                    }
+	                    break;
+
+	                default:
+	                    app_mode = APP_MODE_MENU;
+	                    break;
+	            }
 
 	            system_delay_ms(1);
 
