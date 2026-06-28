@@ -57,6 +57,10 @@
 
 // **************************** 代码区域 ****************************
 
+
+//显示实际转弯过程中的转角以及目标坐标，目标速度，反正就是会影响转弯的参数都打印出来
+
+
 int core0_main(void)
 {
     clock_init();                   // 获取时钟频率<务必保留>
@@ -68,7 +72,7 @@ int core0_main(void)
     // 此处编写用户代码 例如外设初始化代码等
         Encoder_init();
         mykey_Init();
-        scc8660_init();
+       // scc8660_init();
         ips200_init(IPS200_TYPE_SPI);
         //Encoder_init();//由于初始化位置影响，会在刚开始有几秒编码器初始化失败的信息，但是不影响
         Motor_Init();
@@ -80,6 +84,8 @@ int core0_main(void)
         imu660ra_init();//陀螺仪初始化
         filter_Init();
         IMU_Cal();
+        uart_receiver_init();                                            //sbus接收机初始化
+
 
 
 
@@ -90,44 +96,58 @@ int core0_main(void)
 	Menu_Switch();
 	while (TRUE)
 	{
-	    key_scan();
+//	    Steer_target=-20.0f;
+//	   // Remote_test();
+//	   // Remote_Ctrl();
+//
+  Motor_OUT(30.0f,30.0f,1);
+//	    ips200_show_float(120,120,angle,3,5);
 
-	    switch(app_mode)
-	            {
-	                case APP_MODE_MENU:
-	                    if(key_switch())
-	                        Menu_Switch();
-	                    break;
-
-	                case APP_MODE_SUBJECT1:
-	                    subject1_task();
-	                    ips200_show_float(0,150,yaw,3,5);
-	                    if(key4_flag)
-	                    {
-	                        subject1_stop();
-	                        app_mode = APP_MODE_MENU;
-	                        key_flag_clear();
-	                        ips200_clear();
-	                        menu_reset();
-	                    }
-	                    break;
-
-	                case APP_MODE_SUBJECT3:
-	                    subject3_task();
-	                    if(key4_flag)
-	                    {
-	                        subject3_stop();
-	                        app_mode = APP_MODE_MENU;
-	                        key_flag_clear();
-	                        ips200_clear();
-	                        menu_reset();
-	                    }
-	                    break;
-
-	                default:
-	                    app_mode = APP_MODE_MENU;
-	                    break;
-	            }
+//
+//	    key_scan();
+////
+////	    //speed_c=50.0f;
+////	   // Motor_OUT(20.0f,20.0f,1);
+////
+//	    switch(app_mode)
+//	            {
+//	                case APP_MODE_MENU:
+//	                    Steer_target=0.0f;
+//	                    if(key_switch())
+//	                        Menu_Switch();
+//	                    break;
+//
+//	                case APP_MODE_SUBJECT1:
+//	                    //Steer_target = 30.0f;
+//
+//	                    subject1_task();
+//	                   // ips200_show_float(0,150,angle,3,5);
+//	                    if(key4_flag)
+//	                    {
+//	                        subject1_stop();
+//	                        app_mode = APP_MODE_MENU;
+//	                        key_flag_clear();
+//	                        ips200_clear();
+//	                        menu_reset();
+//	                    }
+//	                    break;
+//
+//	                case APP_MODE_SUBJECT3:
+//	                    subject3_task();
+//	                    if(key4_flag)
+//	                    {
+//	                        subject3_stop();
+//	                        app_mode = APP_MODE_MENU;
+//	                        key_flag_clear();
+//	                        ips200_clear();
+//	                        menu_reset();
+//	                    }
+//	                    break;
+//
+//	                default:
+//	                    app_mode = APP_MODE_MENU;
+//	                    break;
+//	            }
 
 	            system_delay_ms(1);
 
@@ -153,7 +173,11 @@ IFX_INTERRUPT(cc60_pit_ch0_isr, 0, CCU6_0_CH0_ISR_PRIORITY)
     float duty_r = SPEED_POS(&RightPID,speed, speed_right);
     Motor_OUT(duty_l, duty_r, dirt_flag);
 
-    Motor_Ctrl(SteerAngle_Ctrl(NavPID.out_put, angle));
+
+    //Motor_Ctrl(SteerAngle_Ctrl(NavPID.out_put, angle));
+
+    Motor_Ctrl(SteerAngle_Ctrl(Steer_target, angle));
+
 
 
     //pid放进中断，还有几个问题没有解决：我觉得不需要增加新的变量(6.6改好)
@@ -175,5 +199,3 @@ IFX_INTERRUPT(cc60_pit_ch0_isr, 0, CCU6_0_CH0_ISR_PRIORITY)
 //      检查模块是否正确连接供电 必须使用电源线供电 不能使用杜邦线
 //      查看程序是否正常烧录，是否下载报错，确认正常按下复位按键
 //      万用表测量对应 PWM 引脚电压是否变化，如果不变化证明程序未运行，或者引脚损坏，或者接触不良 联系技术客服
-
-
